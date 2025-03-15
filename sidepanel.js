@@ -41,9 +41,13 @@ async function summarizeText() {
 }
 
 async function saveNotes() {
-
+    const notes = document.getElementById('notes').value;
+    chrome.storage.local.set({ 'researchNotes': notes }, function() {
+        alert('Notes saved successfully!');
+    });
 }
 
 function showResult(content) {
-
+    document.getElementById('results').innerHTML = `<div class='result-item'><div class="result-content">${content}</div></div>`;
 }
+    
